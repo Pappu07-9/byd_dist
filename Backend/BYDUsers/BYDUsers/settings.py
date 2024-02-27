@@ -161,7 +161,7 @@ CORS_ALLOW_METHODS = (
     "POST",
     "PUT",
 )
-ALLOWED_HOSTS = ["http://84.247.148.29"]
+ALLOWED_HOSTS = ["http://84.247.148.29", "http://84.247.148.29"]
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:5173",
     "http://84.247.148.29",
