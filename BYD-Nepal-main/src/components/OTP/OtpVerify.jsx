@@ -35,7 +35,7 @@ const OtpVerify = () => {
     try {
       await axios.post(
         //replace this url with backend deployed url after backend is deployed
-        ` http://host.docker.internal:8000/auth/verifyotp/${location.state.phoneNumber}/`,
+        `http://84.247.148.29:8000/auth/verifyotp/${location.state.phoneNumber}/`,
         {
           otp: otp,
         }
@@ -52,7 +52,7 @@ const OtpVerify = () => {
   const handleResendApiCall = async () => {
     await axios.get(
       //replace this url with backend deployed url after backend is deployed
-      ` http://host.docker.internal:8000/api/verifyotp/${location.state.phoneNumber}/`
+      `http://84.247.148.29:8000/api/verifyotp/${location.state.phoneNumber}/`
     );
   };
 
