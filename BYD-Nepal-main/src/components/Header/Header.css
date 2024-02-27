@@ -1,0 +1,56 @@
+.app__video {
+  height: fit-content;
+  position: relative;
+  display: flex;
+}
+
+.app__video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.app__video-overlay {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.text {
+  color: #fff;
+  display: flex;
+  font-size: xx-large;
+  height: 80%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.text h1 {
+  justify-content: center;
+  width: 650px;
+  margin-bottom: 60px;
+}
+
+.btn {
+  display: flex;
+}
+
+.custom-button {
+  background-color: #e63946;
+  color: white;
+  padding: 20px 80px;
+  border: none;
+  border-radius: 50px; /* Rounded corners */
+  cursor: pointer; /* Cursor style on hover */
+  display: flex;
+  align-self: center;
+  margin-right: 70px;
+}
+
+/* Add a hover effect */
+.custom-button:hover {
+  background-color: #840c24;
+}

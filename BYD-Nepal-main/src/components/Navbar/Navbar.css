@@ -1,0 +1,19 @@
+.navbar {
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+}
