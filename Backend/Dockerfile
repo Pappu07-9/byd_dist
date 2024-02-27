@@ -18,8 +18,6 @@ COPY . /app
 RUN pip install --upgrade pip
 RUN pip install -r  ./app/requirements.txt
 
-RUN pip install mysqlclient
-
 WORKDIR /app/BYDUsers
 
 # Expose the port that the application will run on
