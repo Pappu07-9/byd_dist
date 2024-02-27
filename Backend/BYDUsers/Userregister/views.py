@@ -237,7 +237,7 @@ def testDriveForm(request):
 def generateotptest(request):
     phone = request.data["phone_number"]
     generateotpcode = str(random.randint(100000, 999999))
-    storeotp = OtpTest.objects.create(otp=generateotpcode)
+    storeotp = OtpTest.objects.create(otp=generateotpcode, phone_number=phone)
     print(storeotp)
     storeotp.save()
     text = f"""Your OTP is: {generateotpcode}. This code will expire in 5 minutes."""
@@ -258,11 +258,15 @@ def generateotptest(request):
 @api_view(["POST"])
 def confirmotptest(request):
     otp = request.data["otp"]
-    otpconfirmation = OtpTest.objects.filter(otp=otp, isused=False)
+    phone_number = request.data["phone_number"]
+    otpconfirmation = OtpTest.objects.filter(
+        otp=otp, phone_number=phone_number, isused=False
+    )
     if otpconfirmation.exists:
-        getotpobject = OtpTest.objects.get(otp=otp)
-        getotpobject.isused = True
-        getotpobject.save()
+        getotpobject = OtpTest.objects.filter(
+            otp=otp, phone_number=phone_number
+        ).first()
+        getotpobject.delete()
         return JsonResponse(
             {"success": True, "message": "Otp Verified"}, status=status.HTTP_200_OK
         )

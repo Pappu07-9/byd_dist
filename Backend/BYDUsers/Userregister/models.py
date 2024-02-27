@@ -34,4 +34,5 @@ class TestDriveData(models.Model):
 
 class OtpTest(models.Model):
     otp = models.CharField(max_length=10)
+    phone_number = models.CharField(max_length=10, default="111111111")
     isused = models.BooleanField(default=False)
