@@ -2,9 +2,9 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path("", generateotp),
+    path("otp",generateotptest),
     path("register", register),
-    path("verifyotp", otpconfirmation),
+    path("verifyotp", confirmotptest),
     path("login", login),
     path("testdrive", testDriveForm),
 ]

@@ -22,10 +22,16 @@ class UserInformation(models.Model):
 
 
 class TestDriveData(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.CharField(max_length=200)
     InterestedTestDriveCar = models.CharField(max_length=200)
     dateOfTestDrive = models.DateField()
     timeOfTestDrive = models.TimeField()
+    phonenumber = models.BigIntegerField()
 
     def __str__(self):
-        return self.user_id.first_name
+        return self.user
+
+
+class OtpTest(models.Model):
+    otp = models.CharField(max_length=10)
+    isused = models.BooleanField(default=False)

@@ -208,16 +208,8 @@ def decodeToken(request):
 
 @api_view(["POST"])
 def testDriveForm(request):
-    decoded_data = decodeToken(request)
-    if decoded_data.get("error"):
-        # If an error occurred during token decoding, return an appropriate response
-        return JsonResponse(
-            {"success": False, "message": decoded_data["message"]},
-            status=status.HTTP_400_BAD_REQUEST,
-        )
     try:
-        userId = decoded_data["userid"]
-        getUserObject = User.objects.get(id=userId)
+        user = request.data["name"]
         interestedModel = request.data["model"]
         date = request.data["date"]
         time = request.data["time"]
@@ -225,7 +217,7 @@ def testDriveForm(request):
             InterestedTestDriveCar=interestedModel,
             dateOfTestDrive=date,
             timeOfTestDrive=time,
-            user_id=getUserObject.id,
+            user=user,
         )
         createTestDrive.save()
         return JsonResponse(
@@ -239,3 +231,40 @@ def testDriveForm(request):
             {"success": False, "message": "Server Error"},
             status=status.HTTP_500_INTERNAL_SERVER_ERROR,
         )
+
+
+@api_view(["POST"])
+def generateotptest(request):
+    phone = request.data["phone_number"]
+    generateotpcode = str(random.randint(100000, 999999))
+    storeotp = OtpTest.objects.create(otp=generateotpcode)
+    print(storeotp)
+    storeotp.save()
+    text = f"""Your OTP is: {generateotpcode}. This code will expire in 5 minutes."""
+    parameters = {
+        "auth_token": SMS_AUTH_TOKEN,
+        "text": text,
+        "to": phone,
+    }
+    response = requests.post(url=SMS_HOST_URL, params=parameters)
+    return JsonResponse(
+        {
+            "message": "OTP has been sent to your registered number",
+            "success": True,
+        }
+    )
+
+
+@api_view(["POST"])
+def confirmotptest(request):
+    otp = request.data["otp"]
+    otpconfirmation = OtpTest.objects.filter(otp=otp, isused=False)
+    if otpconfirmation.exists:
+        getotpobject = OtpTest.objects.get(otp=otp)
+        getotpobject.isused = True
+        getotpobject.save()
+        return JsonResponse(
+            {"success": True, "message": "Otp Verified"}, status=status.HTTP_200_OK
+        )
+    else:
+        return JsonResponse({"success": False, "message": "Invalid Otp"})
