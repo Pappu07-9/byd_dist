@@ -35,7 +35,7 @@ const PhoneNumber = () => {
   const handleApiCall = async () => {
     try {
       //replace this url with backend deployed url after backend is deployed
-      await axios.post("http://localhost:8000/auth/otp", {
+      await axios.post(" http://host.docker.internal:8000/auth/otp", {
         phone_number: inputText,
       });
 
