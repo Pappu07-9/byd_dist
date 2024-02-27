@@ -35,7 +35,7 @@ const OtpVerify = () => {
     try {
       await axios.post(
         //replace this url with backend deployed url after backend is deployed
-        `http://localhost:8000/api/temp-otp/${location.state.phoneNumber}/`,
+        `http://localhost:8000/auth/verifyotp/${location.state.phoneNumber}/`,
         {
           otp: otp,
         }
@@ -52,7 +52,7 @@ const OtpVerify = () => {
   const handleResendApiCall = async () => {
     await axios.get(
       //replace this url with backend deployed url after backend is deployed
-      `http://localhost:8000/api/temp-otp/${location.state.phoneNumber}/`
+      `http://localhost:8000/api/verifyotp/${location.state.phoneNumber}/`
     );
   };
 
@@ -80,7 +80,8 @@ const OtpVerify = () => {
             height="40"
             viewBox="0 0 40 40"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg">
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <rect
               width="40"
               height="40"
@@ -120,14 +121,16 @@ const OtpVerify = () => {
 
             <div
               className="submit-button otp-verify-button"
-              onClick={onClickSubmitButton}>
+              onClick={onClickSubmitButton}
+            >
               Verify
             </div>
             <div className="otp-text">
               <div className="receive-code-text">Didn’t receive code?</div>
               <div
                 className="resend-code-text text-center"
-                onClick={handleResendApiCall}>
+                onClick={handleResendApiCall}
+              >
                 Re-send
               </div>
             </div>
