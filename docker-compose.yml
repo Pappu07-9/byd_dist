@@ -16,6 +16,7 @@ services:
       - app
     links:
       - db:db
+    restart: always
 
     networks:
         - byddjangonetwork
@@ -42,6 +43,7 @@ services:
     networks:
         - byddjangonetwork
   db:
+    platform: linux/x86_64
     image: mysql:8
     container_name: byd_database
     restart: always
