@@ -151,7 +151,7 @@ STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_METHODS = (
     "DELETE",
@@ -161,17 +161,8 @@ CORS_ALLOW_METHODS = (
     "POST",
     "PUT",
 )
-CORS_ALLOW_HEADERS = (
-    "accept",
-    "accept-encoding",
-    "authorization",
-    "content-type",
-    "dnt",
-    "origin",
-    "user-agent",
-    "x-csrftoken",
-    "x-requested-with",
-)
+
+CORS_ORIGIN_WHITELIST = ["http://localhost:5173"]
 CSRF_COOKIE_SAMESITE = False
 SESSION_COOKIE_SAMESITE = False
 CSRF_COOKIE_HTTPONLY = False
