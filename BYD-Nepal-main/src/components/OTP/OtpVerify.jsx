@@ -35,7 +35,7 @@ const OtpVerify = () => {
     try {
       await axios.post(
         //replace this url with backend deployed url after backend is deployed
-        `http://84.247.148.29:8000/auth/verifyotp/`,
+        `http://84.247.148.29:8000/auth/verifyotp`,
         {
           otp: otp,
           phone_number: location.state.phoneNumber,
