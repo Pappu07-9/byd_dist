@@ -18,9 +18,7 @@ COPY . /app
 RUN pip install --upgrade pip
 RUN pip install -r  ./app/requirements.txt
 
-RUN apt-get update \
-  && apt-get -y install libpq-dev gcc \
-  && pip install mysqlclient
+RUN pip install mysqlclient
 
 WORKDIR /app/BYDUsers
 
