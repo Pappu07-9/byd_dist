@@ -50,13 +50,13 @@ const ListOfServices = () => {
 
                 $(".current-word")
                     .eq(i)
-                    .css("animation-delay", "" + i / 5 + "s");
+                    .css("animation-delay", "" + i / 10 + "s");
             }
         }, 5000);
 
         setTimeout(() => {
             setShowProduct(true);
-        }, 6000);
+        }, 1000);
     }
 
     useEffect(() => {
@@ -75,7 +75,7 @@ const ListOfServices = () => {
         <div className="container">
             <div className="inside-byd">
                 <div className="text-container">
-                    <div class="text-holder"></div>
+                    <div className="text-holder"></div>
                 </div>
                 <div className="assistant-container">
                     <div className="assistant-image"></div>
@@ -183,8 +183,7 @@ const ListOfServices = () => {
                             </div>
                             <div className="view-product-text ">Cost-saving</div>
                         </div>
-                        <NavLink to="/test-drive" className="view-products">
-                            {/* <div className="view-products"> */}
+                        {/* <NavLink to="/test-drive" className="view-products">
                             <div className="view-products-svg">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -200,7 +199,7 @@ const ListOfServices = () => {
                             </div>
 
                             <div className="view-product-text ">Test drive</div>
-                        </NavLink>
+                        </NavLink> */}
                         {/* </div> */}
                         <div className="view-products">
                             <div className="view-products-svg">

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import firstImage from "../../../assets/atto3-car1.png";
 import secondImage from "../../../assets/atto3-car2.png";
 import thirdImage from "../../../assets/atto3-car3.png";
+import { Box, Flex, Text } from "@chakra-ui/react";
 
 // import pdf from "../../../assets/BYDATTO3100kWBrochure.pdf"
 
@@ -140,55 +141,73 @@ const Atto3 = () => {
         !isBodyClicked && !isGroundClicked && !isTyreClicked && !isInteriorsClicked;
 
     return (
-        <div className="car-showroom-container">
-            <div className="byd-text text-white">BYD</div>
-            <div className="atto3-text text-white">Atto3</div>
-            <div className="interior-link atto3-top-nav">
-                <span onClick={OnClickVehiclesButton}>
-                    <svg
-                        width="40"
-                        height="40"
-                        viewBox="0 0 40 40"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <rect
-                            width="40"
-                            height="40"
-                            rx="4"
-                            fill="white"
-                            fill-opacity="0.08"
-                        />
-                        <path
-                            d="M27 20H13"
-                            stroke="white"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
-                        <path
-                            d="M20 27L13 20L20 13"
-                            stroke="white"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
-                    </svg>
-                </span>
-                Vehicles
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none">
-                    <path d="M10 17L15 12L10 7V17Z" fill="white" />
-                </svg>
-                <span className="text-white">Atto3</span>
-            </div>
-            <div className="row">
-                <div
-                    className={`button-container ${isButtonContainerEnd && "button-container-end"
+        <Box className="car-showroom-container" w='100vw'>
+            <Box
+                // py={'10px'}
+                paddingTop='50px'
+                paddingLeft={'100px'}
+                backgroundImage={'./src/assets/car-bg.png'}
+                backgroundRepeat={'no-repeat'}
+                backgroundSize={'cover'}
+                // w='100vw'
+                // marginLeft={'-5vw'}
+                h='100vh'
+            >
+                <Flex w='90%' justifyContent={'space-between'} px={'20px'}>
+                    <Flex direction={'column'}>
+                        <div className="byd-text text-white">BYD</div>
+                        <div className="atto3-text text-white">Atto 3</div>
+                    </Flex>
+                    <div className="interior-link atto3-top-nav">
+                        <span onClick={OnClickVehiclesButton}>
+                            <svg
+                                width="40"
+                                height="40"
+                                viewBox="0 0 40 40"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect
+                                    width="40"
+                                    height="40"
+                                    rx="4"
+                                    fill="white"
+                                    fill-opacity="0.08"
+                                />
+                                <path
+                                    d="M27 20H13"
+                                    stroke="white"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M20 27L13 20L20 13"
+                                    stroke="white"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </span>
+                        Vehicles
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none">
+                            <path d="M10 17L15 12L10 7V17Z" fill="white" />
+                        </svg>
+                        <span className="text-white">Atto3</span>
+                    </div>
+                </Flex>
+
+                <Flex
+                    w='90%'
+                    justifyContent={'flex-end'}
+                    className={`${isButtonContainerEnd && "button-container-end"
                         }`}>
+                    sd
                     {isButtonVisible && (
                         <>
                             <a href="./src/assets/BYDATTO3100kWBrochure.pdf" className="button-class">
@@ -205,10 +224,10 @@ const Atto3 = () => {
                                     />
                                 </svg>
                             </a>
-                            <button className="button-class">Call center</button>
-                            <button className="button-class" onClick={OnClickShowroomButton}>
-                                Back to showroom
-                            </button>
+                            {/* <button className="button-class">Call center</button>
+                                <button className="button-class" onClick={OnClickShowroomButton}>
+                                    Back to showroom
+                                </button> */}
                         </>
                     )}
                     {!isHideHotspotsClicked ? (
@@ -251,418 +270,585 @@ const Atto3 = () => {
                         <span className="text-black bg-white p-2">2d</span>
                         <span className="text-white p-2">3d</span>
                     </button>
-                </div>
-            </div>
+                </Flex>
 
-            {isPerferenceBox && (
+                {/* {isPerferenceBox && (
                 <div className="position-absolute perferance-box">
                     <div className="text-white">What would you like to do?</div>
                     <div className="perference-button-container">
                         <button className="button-class">Finance</button>
                         <button className="button-class">Exchange</button>
-                        <button className="button-class">Test drive</button>
+                        <NavLink to={'/test-drive'}>
+                            <button className="button-class">Test drive</button>
+                        </NavLink>
                     </div>
                 </div>
-            )}
-            {isCloseIcon && (
-                <div className="close-svg" onClick={closeIconOnClick}>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none">
-                        <path
-                            d="M16.875 7.125L7.125 16.875M7.125 7.125L16.875 16.875"
-                            stroke="#F1FAEE"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
-                    </svg>
-                </div>
-            )}
-            {isFirstImageClicked && (
-                <div
-                    className={`atto3-first-image ${(isBodyClicked ||
-                        isGroundClicked ||
-                        isTyreClicked ||
-                        isInteriorsClicked ||
-                        isHideHotspotsClicked) &&
-                        "atto3-image-width"
-                        } ${isHideHotspotsClicked && "atto3-hide-hubspot-image"}`}>
-                    {!isGroundClicked &&
-                        !isTyreClicked &&
-                        !isInteriorsClicked &&
-                        !isHideHotspotsClicked && (
-                            <>
-                                <div className="dot-svg1-car-1" onClick={bodyOnClick}>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="32"
-                                        height="32"
-                                        viewBox="0 0 32 32"
-                                        fill="none">
-                                        <circle cx="16" cy="16" r="4" fill="#F1FAEE" />
-                                        <circle
-                                            cx="16"
-                                            cy="16"
-                                            r="14.5"
-                                            stroke="#F1FAEE"
-                                            stroke-width="3"
-                                        />
-                                    </svg>
-                                    {isBodyClicked && (
-                                        <>
-                                            <div className="body-box body-position">Headlight</div>
-                                            <div className="body-line-svg">
+            )} */}
+                {isCloseIcon && (
+                    <div className="close-svg" onClick={closeIconOnClick}>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none">
+                            <path
+                                d="M16.875 7.125L7.125 16.875M7.125 7.125L16.875 16.875"
+                                stroke="#F1FAEE"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </div>
+                )}
 
-                                            </div>
-                                        </>
-                                    )}
-                                </div>
-                                {isBodyClicked && (
-                                    <div className="description-container">
-                                        <ul>
-                                            <li className="data-list">
-                                                {`Standard LED headlights and taillights provide excellent visibility and enhance the car's modern look.`}
-                                                {/* <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="5"
-                                                    height="6"
-                                                    viewBox="0 0 5 6"
-                                                    fill="none">
-                                                    <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
-                                                </svg> */}
-                                            </li>
-                                            <li className="data-list">
-                                                {`Optional 360-degree camera system enhances visibility and aids in parking maneuvers.`}
-                                                {/* <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="5"
-                                                    height="6"
-                                                    viewBox="0 0 5 6"
-                                                    fill="none">
-                                                    <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
-                                                </svg> */}
-                                            </li>
-                                        </ul>
+                {isFirstImageClicked && (
+                    <div
+                        className={`atto3-first-image ${(isBodyClicked ||
+                            isGroundClicked ||
+                            isTyreClicked ||
+                            isInteriorsClicked ||
+                            isHideHotspotsClicked) &&
+                            "atto3-image-width"
+                            } ${isHideHotspotsClicked && "atto3-hide-hubspot-image"}`}>
+                        {!isGroundClicked &&
+                            !isTyreClicked &&
+                            !isInteriorsClicked &&
+                            !isHideHotspotsClicked && (
+                                <>
+                                    <div className="dot-svg1-car-1" onClick={bodyOnClick}>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="32"
+                                            height="32"
+                                            viewBox="0 0 32 32"
+                                            fill="none">
+                                            <circle cx="16" cy="16" r="4" fill="#F1FAEE" />
+                                            <circle
+                                                cx="16"
+                                                cy="16"
+                                                r="14.5"
+                                                stroke="#F1FAEE"
+                                                stroke-width="3"
+                                            />
+                                        </svg>
+                                        {isBodyClicked && (
+                                            <>
+                                                <div className="body-box body-position">Headlight</div>
+                                                <div className="body-line-svg">
+
+                                                </div>
+                                            </>
+                                        )}
                                     </div>
-                                )}
-                            </>
-                        )}
-                    {!isBodyClicked &&
-                        !isGroundClicked &&
-                        !isTyreClicked &&
-                        !isHideHotspotsClicked && (
-                            <>
-                                <div
-                                    className="dot-svg2-car-1"
-                                    onClick={() => setIsInteriorsClicked(true)}>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="32"
-                                        height="32"
-                                        viewBox="0 0 32 32"
-                                        fill="none">
-                                        <circle cx="16" cy="16" r="4" fill="#F1FAEE" />
-                                        <circle
-                                            cx="16"
-                                            cy="16"
-                                            r="14.5"
-                                            stroke="#F1FAEE"
-                                            stroke-width="3"
-                                        />
-                                    </svg>
+                                    {isBodyClicked && (
+                                        <div className="description-container">
+                                            <ul>
+                                                <li className="data-list">
+                                                    {`Standard LED headlights and taillights provide excellent visibility and enhance the car's modern look.`}
+                                                    {/* <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="5"
+                                                    height="6"
+                                                    viewBox="0 0 5 6"
+                                                    fill="none">
+                                                    <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
+                                                </svg> */}
+                                                </li>
+                                                <li className="data-list">
+                                                    {`Optional 360-degree camera system enhances visibility and aids in parking maneuvers.`}
+                                                    {/* <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    width="5"
+                                                    height="6"
+                                                    viewBox="0 0 5 6"
+                                                    fill="none">
+                                                    <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
+                                                </svg> */}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    )}
+                                </>
+                            )}
+                        {!isBodyClicked &&
+                            !isGroundClicked &&
+                            !isTyreClicked &&
+                            !isHideHotspotsClicked && (
+                                <>
+                                    <div
+                                        className="dot-svg2-car-1"
+                                        onClick={() => setIsInteriorsClicked(true)}>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="32"
+                                            height="32"
+                                            viewBox="0 0 32 32"
+                                            fill="none">
+                                            <circle cx="16" cy="16" r="4" fill="#F1FAEE" />
+                                            <circle
+                                                cx="16"
+                                                cy="16"
+                                                r="14.5"
+                                                stroke="#F1FAEE"
+                                                stroke-width="3"
+                                            />
+                                        </svg>
+                                        {isInteriorsClicked && (
+                                            <>
+                                                <div className="body-box interior-position">
+                                                    Interiors
+                                                </div>
+                                                <div className="interior-line-svg"></div>
+                                            </>
+                                        )}
+                                    </div>
                                     {isInteriorsClicked && (
                                         <>
-                                            <div className="body-box interior-position">
-                                                Interiors
+                                            <div className="description-container">
+                                                <ul>
+                                                    <li className="data-list">
+                                                        Steering wheel mounted controls
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="5"
+                                                            height="6"
+                                                            viewBox="0 0 5 6"
+                                                            fill="none">
+                                                            <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
+                                                        </svg>
+                                                    </li>
+                                                    <li className="data-list">
+                                                        Electric power assisted steering system
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="5"
+                                                            height="6"
+                                                            viewBox="0 0 5 6"
+                                                            fill="none">
+                                                            <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
+                                                        </svg>
+                                                    </li>
+                                                    <li className="data-list">
+                                                        5” (12.7cm) digital instrument panel
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="5"
+                                                            height="6"
+                                                            viewBox="0 0 5 6"
+                                                            fill="none">
+                                                            <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
+                                                        </svg>
+                                                    </li>
+                                                    <li className="data-list">
+                                                        Synthetic leather seat
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="5"
+                                                            height="6"
+                                                            viewBox="0 0 5 6"
+                                                            fill="none">
+                                                            <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
+                                                        </svg>
+                                                    </li>
+                                                    <li className="data-list">
+                                                        60/40 split fold rear seat
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="5"
+                                                            height="6"
+                                                            viewBox="0 0 5 6"
+                                                            fill="none">
+                                                            <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
+                                                        </svg>
+                                                    </li>
+                                                    <li className="data-list">
+                                                        6-way power adjustment - driver seat
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="5"
+                                                            height="6"
+                                                            viewBox="0 0 5 6"
+                                                            fill="none">
+                                                            <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
+                                                        </svg>
+                                                    </li>
+                                                    <li className="data-list">
+                                                        4-way power adjustment - front passenger seat
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="5"
+                                                            height="6"
+                                                            viewBox="0 0 5 6"
+                                                            fill="none">
+                                                            <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
+                                                        </svg>
+                                                    </li>
+                                                    <li className="data-list">
+                                                        ISOFIX child restraint anchorage points outer rear
+                                                        seats
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="5"
+                                                            height="6"
+                                                            viewBox="0 0 5 6"
+                                                            fill="none">
+                                                            <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
+                                                        </svg>
+                                                    </li>
+                                                </ul>
                                             </div>
-                                            <div className="interior-line-svg"></div>
+                                            <div className="interior-link ms-5 ps-4">
+                                                Interiors
+                                                <span onClick={OnClickInteriorButton}>
+                                                    <svg
+                                                        width="38"
+                                                        height="40"
+                                                        viewBox="0 0 38 40"
+                                                        fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <rect
+                                                            width="40"
+                                                            height="40"
+                                                            rx="4"
+                                                            fill="white"
+                                                            fill-opacity="0.08"
+                                                        />
+                                                        <path
+                                                            d="M13 20H27"
+                                                            stroke="white"
+                                                            stroke-width="2"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                        />
+                                                        <path
+                                                            d="M20 13L27 20L20 27"
+                                                            stroke="white"
+                                                            stroke-width="2"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                        />
+                                                    </svg>
+                                                </span>
+                                            </div>
                                         </>
                                     )}
-                                </div>
-                                {isInteriorsClicked && (
-                                    <>
-                                        <div className="description-container">
-                                            <ul>
-                                                <li className="data-list">
-                                                    Steering wheel mounted controls
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        width="5"
-                                                        height="6"
-                                                        viewBox="0 0 5 6"
-                                                        fill="none">
-                                                        <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
-                                                    </svg>
-                                                </li>
-                                                <li className="data-list">
-                                                    Electric power assisted steering system
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        width="5"
-                                                        height="6"
-                                                        viewBox="0 0 5 6"
-                                                        fill="none">
-                                                        <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
-                                                    </svg>
-                                                </li>
-                                                <li className="data-list">
-                                                    5” (12.7cm) digital instrument panel
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        width="5"
-                                                        height="6"
-                                                        viewBox="0 0 5 6"
-                                                        fill="none">
-                                                        <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
-                                                    </svg>
-                                                </li>
-                                                <li className="data-list">
-                                                    Synthetic leather seat
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        width="5"
-                                                        height="6"
-                                                        viewBox="0 0 5 6"
-                                                        fill="none">
-                                                        <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
-                                                    </svg>
-                                                </li>
-                                                <li className="data-list">
-                                                    60/40 split fold rear seat
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        width="5"
-                                                        height="6"
-                                                        viewBox="0 0 5 6"
-                                                        fill="none">
-                                                        <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
-                                                    </svg>
-                                                </li>
-                                                <li className="data-list">
-                                                    6-way power adjustment - driver seat
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        width="5"
-                                                        height="6"
-                                                        viewBox="0 0 5 6"
-                                                        fill="none">
-                                                        <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
-                                                    </svg>
-                                                </li>
-                                                <li className="data-list">
-                                                    4-way power adjustment - front passenger seat
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        width="5"
-                                                        height="6"
-                                                        viewBox="0 0 5 6"
-                                                        fill="none">
-                                                        <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
-                                                    </svg>
-                                                </li>
-                                                <li className="data-list">
-                                                    ISOFIX child restraint anchorage points outer rear
-                                                    seats
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        width="5"
-                                                        height="6"
-                                                        viewBox="0 0 5 6"
-                                                        fill="none">
-                                                        <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
-                                                    </svg>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div className="interior-link ms-5 ps-4">
-                                            Interiors
-                                            <span onClick={OnClickInteriorButton}>
-                                                <svg
-                                                    width="38"
-                                                    height="40"
-                                                    viewBox="0 0 38 40"
-                                                    fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <rect
-                                                        width="40"
-                                                        height="40"
-                                                        rx="4"
-                                                        fill="white"
-                                                        fill-opacity="0.08"
-                                                    />
-                                                    <path
-                                                        d="M13 20H27"
-                                                        stroke="white"
-                                                        stroke-width="2"
-                                                        stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                    />
-                                                    <path
-                                                        d="M20 13L27 20L20 27"
-                                                        stroke="white"
-                                                        stroke-width="2"
-                                                        stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                    />
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </>
-                                )}
-                            </>
-                        )}
-                    {!isBodyClicked &&
-                        !isGroundClicked &&
-                        !isInteriorsClicked &&
-                        !isHideHotspotsClicked && (
-                            <>
-                                <div
-                                    className="dot-svg3-car-1"
-                                    onClick={() => setIsTyreClicked(true)}>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="32"
-                                        height="32"
-                                        viewBox="0 0 32 32"
-                                        fill="none">
-                                        <circle cx="16" cy="16" r="4" fill="#F1FAEE" />
-                                        <circle
-                                            cx="16"
-                                            cy="16"
-                                            r="14.5"
-                                            stroke="#F1FAEE"
-                                            stroke-width="3"
-                                        />
-                                    </svg>
+                                </>
+                            )}
+                        {!isBodyClicked &&
+                            !isGroundClicked &&
+                            !isInteriorsClicked &&
+                            !isHideHotspotsClicked && (
+                                <>
+                                    <div
+                                        className="dot-svg3-car-1"
+                                        onClick={() => setIsTyreClicked(true)}>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="32"
+                                            height="32"
+                                            viewBox="0 0 32 32"
+                                            fill="none">
+                                            <circle cx="16" cy="16" r="4" fill="#F1FAEE" />
+                                            <circle
+                                                cx="16"
+                                                cy="16"
+                                                r="14.5"
+                                                stroke="#F1FAEE"
+                                                stroke-width="3"
+                                            />
+                                        </svg>
+                                        {isTyreClicked && (
+                                            <>
+                                                <div className="body-box tyre-position">Tire</div>
+                                                <div className="tyre-line-svg"></div>{" "}
+                                            </>
+                                        )}
+                                    </div>
                                     {isTyreClicked && (
                                         <>
-                                            <div className="body-box tyre-position">Tire</div>
-                                            <div className="tyre-line-svg"></div>{" "}
+                                            <div className="description-container">
+                                                <ul>
+                                                    <li className="data-list">
+                                                        Wheel type
+                                                        <span>Alloy</span>
+                                                    </li>
+                                                    <li className="data-list">
+                                                        Tyre size
+                                                        <span>215/55 R18</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </>
                                     )}
-                                </div>
-                                {isTyreClicked && (
-                                    <>
-                                        <div className="description-container">
-                                            <ul>
-                                                <li className="data-list">
-                                                    Wheel type
-                                                    <span>Alloy</span>
-                                                </li>
-                                                <li className="data-list">
-                                                    Tyre size
-                                                    <span>215/55 R18</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </>
-                                )}
-                            </>
-                        )}
-                    {!isBodyClicked &&
-                        !isTyreClicked &&
-                        !isInteriorsClicked &&
-                        !isHideHotspotsClicked && (
-                            <>
-                                <div
-                                    className="dot-svg4-car-1"
-                                    onClick={() => setIsGroundClicked(true)}>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="32"
-                                        height="32"
-                                        viewBox="0 0 32 32"
-                                        fill="none">
-                                        <circle cx="16" cy="16" r="4" fill="#F1FAEE" />
-                                        <circle
-                                            cx="16"
-                                            cy="16"
-                                            r="14.5"
-                                            stroke="#F1FAEE"
-                                            stroke-width="3"
-                                        />
-                                    </svg>
+                                </>
+                            )}
+                        {!isBodyClicked &&
+                            !isTyreClicked &&
+                            !isInteriorsClicked &&
+                            !isHideHotspotsClicked && (
+                                <>
+                                    <div
+                                        className="dot-svg4-car-1"
+                                        onClick={() => setIsGroundClicked(true)}>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="32"
+                                            height="32"
+                                            viewBox="0 0 32 32"
+                                            fill="none">
+                                            <circle cx="16" cy="16" r="4" fill="#F1FAEE" />
+                                            <circle
+                                                cx="16"
+                                                cy="16"
+                                                r="14.5"
+                                                stroke="#F1FAEE"
+                                                stroke-width="3"
+                                            />
+                                        </svg>
+                                        {isGroundClicked && (
+                                            <>
+                                                <div className="body-box ground-position">Ground</div>
+                                                <div className="ground-line-svg"></div>{" "}
+                                            </>
+                                        )}
+                                    </div>
                                     {isGroundClicked && (
                                         <>
-                                            <div className="body-box ground-position">Ground</div>
-                                            <div className="ground-line-svg"></div>{" "}
+                                            <div className="description-container">
+                                                <ul>
+                                                    <li className="data-list">
+                                                        This nimble SUV is perfect for city driving and navigating tight spaces.
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="5"
+                                                            height="6"
+                                                            viewBox="0 0 5 6"
+                                                            fill="none">
+                                                            <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
+                                                        </svg>
+                                                    </li>
+                                                    <li className="data-list">
+                                                        Length 4,555 mm .
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="5"
+                                                            height="6"
+                                                            viewBox="0 0 5 6"
+                                                            fill="none">
+                                                            <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
+                                                        </svg>
+                                                    </li>
+                                                    <li className="data-list">
+                                                        width 1,875 mm
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="5"
+                                                            height="6"
+                                                            viewBox="0 0 5 6"
+                                                            fill="none">
+                                                            <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
+                                                        </svg>
+                                                    </li>
+                                                    <li className="data-list">
+                                                        Height 1,615 mm
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width="5"
+                                                            height="6"
+                                                            viewBox="0 0 5 6"
+                                                            fill="none">
+                                                            <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
+                                                        </svg>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </>
                                     )}
-                                </div>
-                                {isGroundClicked && (
-                                    <>
-                                        <div className="description-container">
-                                            <ul>
-                                                <li className="data-list">
-                                                    This nimble SUV is perfect for city driving and navigating tight spaces.
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        width="5"
-                                                        height="6"
-                                                        viewBox="0 0 5 6"
-                                                        fill="none">
-                                                        <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
-                                                    </svg>
-                                                </li>
-                                                <li className="data-list">
-                                                    Length 4,555 mm .
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        width="5"
-                                                        height="6"
-                                                        viewBox="0 0 5 6"
-                                                        fill="none">
-                                                        <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
-                                                    </svg>
-                                                </li>
-                                                <li className="data-list">
-                                                    width 1,875 mm
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        width="5"
-                                                        height="6"
-                                                        viewBox="0 0 5 6"
-                                                        fill="none">
-                                                        <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
-                                                    </svg>
-                                                </li>
-                                                <li className="data-list">
-                                                    Height 1,615 mm
-                                                    <svg
-                                                        xmlns="http://www.w3.org/2000/svg"
-                                                        width="5"
-                                                        height="6"
-                                                        viewBox="0 0 5 6"
-                                                        fill="none">
-                                                        <circle cx="2.5" cy="3" r="2.5" fill="#D9D9D9" />
-                                                    </svg>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </>
-                                )}
-                            </>
-                        )}
-                </div>
-            )}
+                                </>
+                            )}
+                    </div>
+                )}
 
-            {isSecondImageClicked && (
-                <div
-                    className={`atto3-second-image ${isEngineClicked && "atto3-second-image-engine"
-                        }  ${(isUpperExteriorsClicked || isLowerExteriorsClicked) &&
-                        "atto3-second-image-exterior"
-                        } ${isHideHotspotsClicked && "atto3-hide-hubspot-image"}`}>
-                    {!isLowerExteriorsClicked &&
-                        !isUpperExteriorsClicked &&
-                        !isHideHotspotsClicked && (
+                {isSecondImageClicked && (
+                    <div
+                        className={`atto3-second-image ${isEngineClicked && "atto3-second-image-engine"
+                            }  ${(isUpperExteriorsClicked || isLowerExteriorsClicked) &&
+                            "atto3-second-image-exterior"
+                            } ${isHideHotspotsClicked && "atto3-hide-hubspot-image"}`}>
+                        {!isLowerExteriorsClicked &&
+                            !isUpperExteriorsClicked &&
+                            !isHideHotspotsClicked && (
+                                <>
+                                    <div
+                                        className="dot-svg1-car-2"
+                                        onClick={() => setIsEngineClicked(true)}>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="32"
+                                            height="32"
+                                            viewBox="0 0 32 32"
+                                            fill="none">
+                                            <circle cx="16" cy="16" r="4" fill="#F1FAEE" />
+                                            <circle
+                                                cx="16"
+                                                cy="16"
+                                                r="14.5"
+                                                stroke="#F1FAEE"
+                                                stroke-width="3"
+                                            />
+                                        </svg>
+                                        {isEngineClicked && (
+                                            <>
+                                                <div className="body-box body-position">Bonnet</div>
+                                                <div className="body-line-svg"></div>
+                                            </>
+                                        )}
+                                    </div>
+                                    {isEngineClicked && (
+                                        <>
+                                            <div className="description-text-container">
+                                                <span>
+                                                    The Atto 3 comes with a single electric motor offering 204 horsepower and 310 Nm of torque.
+                                                    Battery and range: Several battery options are available, with the largest offering a range of up to 420 km (WLTP).
+                                                </span>
+
+                                            </div>
+                                            <div className="interior-link">
+                                                Engine
+                                                <span onClick={OnClickEngineButton}>
+                                                    <svg
+                                                        width="38"
+                                                        height="40"
+                                                        viewBox="0 0 38 40"
+                                                        fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <rect
+                                                            width="40"
+                                                            height="40"
+                                                            rx="4"
+                                                            fill="white"
+                                                            fill-opacity="0.08"
+                                                        />
+                                                        <path
+                                                            d="M13 20H27"
+                                                            stroke="white"
+                                                            stroke-width="2"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                        />
+                                                        <path
+                                                            d="M20 13L27 20L20 27"
+                                                            stroke="white"
+                                                            stroke-width="2"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                        />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </>
+                                    )}
+                                </>
+                            )}
+                        {!isEngineClicked &&
+                            !isLowerExteriorsClicked &&
+                            !isHideHotspotsClicked && (
+                                <>
+                                    <div
+                                        className="dot-svg2-car-2"
+                                        onClick={() => setIsUpperExteriorsClicked(true)}>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="32"
+                                            height="32"
+                                            viewBox="0 0 32 32"
+                                            fill="none">
+                                            <circle cx="16" cy="16" r="4" fill="#F1FAEE" />
+                                            <circle
+                                                cx="16"
+                                                cy="16"
+                                                r="14.5"
+                                                stroke="#F1FAEE"
+                                                stroke-width="3"
+                                            />
+                                        </svg>
+                                        {isUpperExteriorsClicked && (
+                                            <>
+                                                <div className="body-box body-position">Exteriors</div>
+                                                <div className="body-line-svg"></div>
+                                            </>
+                                        )}
+                                    </div>
+                                    {isUpperExteriorsClicked && (
+                                        <>
+                                            <div className="description-text-container w-75">
+                                                <span>
+                                                    {`The Atto 3 boasts a head-turning design with a sporty stance, sharp lines, and a distinctive grille. The "Dragon Face" theme adds a touch of personality.`}
+                                                    Optional panoramic sunroof opens up the cabin and creates an airy feel.
+                                                </span>
+
+                                            </div>
+                                        </>
+                                    )}
+                                </>
+                            )}
+                        {!isEngineClicked &&
+                            !isUpperExteriorsClicked &&
+                            !isHideHotspotsClicked && (
+                                <>
+                                    <div
+                                        className="dot-svg3-car-2"
+                                        onClick={() => setIsLowerExteriorsClicked(true)}>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="32"
+                                            height="32"
+                                            viewBox="0 0 32 32"
+                                            fill="none">
+                                            <circle cx="16" cy="16" r="4" fill="#F1FAEE" />
+                                            <circle
+                                                cx="16"
+                                                cy="16"
+                                                r="14.5"
+                                                stroke="#F1FAEE"
+                                                stroke-width="3"
+                                            />
+                                        </svg>
+                                        {isLowerExteriorsClicked && (
+                                            <>
+                                                <div className="body-box exterior-position">
+                                                    Exteriors
+                                                </div>
+                                                <div className="lower-exterior-line"></div>
+                                            </>
+                                        )}
+                                    </div>
+                                    {isLowerExteriorsClicked && (
+                                        <>
+                                            <div className="description-text-container w-75">
+                                                <span>
+                                                    BYD Atto 3 Ground Clearance is 175 mm.
+                                                </span>
+                                            </div>
+                                        </>
+                                    )}
+                                </>
+                            )}
+                    </div>
+                )}
+                {isThirdImageClicked && (
+                    <div
+                        className={`atto3-third-image ${(isGetInsideClicked || isTrunkClicked) &&
+                            !isHideHotspotsClicked &&
+                            "atto3-third-image-left"
+                            }`}>
+                        {!isGetInsideClicked && !isHideHotspotsClicked && (
                             <>
                                 <div
-                                    className="dot-svg1-car-2"
-                                    onClick={() => setIsEngineClicked(true)}>
+                                    className="dot-svg1-car-3"
+                                    onClick={() => setIsTrunkClicked(true)}>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="32"
@@ -678,25 +864,24 @@ const Atto3 = () => {
                                             stroke-width="3"
                                         />
                                     </svg>
-                                    {isEngineClicked && (
+                                    {isTrunkClicked && (
                                         <>
-                                            <div className="body-box body-position">Bonnet</div>
+                                            <div className="body-box body-position">Trunk</div>
                                             <div className="body-line-svg"></div>
                                         </>
                                     )}
                                 </div>
-                                {isEngineClicked && (
+                                {isTrunkClicked && (
                                     <>
-                                        <div className="description-text-container">
+                                        <div className="description-text-container w-75">
                                             <span>
-                                                The Atto 3 comes with a single electric motor offering 204 horsepower and 310 Nm of torque.
-                                                Battery and range: Several battery options are available, with the largest offering a range of up to 420 km (WLTP).
+                                                The BYD Atto 3 has a boot space measuring 440 litres
                                             </span>
 
                                         </div>
-                                        <div className="interior-link">
-                                            Engine
-                                            <span onClick={OnClickEngineButton}>
+                                        <div className="interior-link ps-5 ms-5">
+                                            Trunk
+                                            <span onClick={OnClickTrunkButton}>
                                                 <svg
                                                     width="38"
                                                     height="40"
@@ -731,13 +916,11 @@ const Atto3 = () => {
                                 )}
                             </>
                         )}
-                    {!isEngineClicked &&
-                        !isLowerExteriorsClicked &&
-                        !isHideHotspotsClicked && (
+                        {!isTrunkClicked && !isHideHotspotsClicked && (
                             <>
                                 <div
-                                    className="dot-svg2-car-2"
-                                    onClick={() => setIsUpperExteriorsClicked(true)}>
+                                    className="dot-svg2-car-3"
+                                    onClick={() => setIsGetInsideClicked(true)}>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="32"
@@ -753,243 +936,86 @@ const Atto3 = () => {
                                             stroke-width="3"
                                         />
                                     </svg>
-                                    {isUpperExteriorsClicked && (
+                                    {isGetInsideClicked && (
                                         <>
-                                            <div className="body-box body-position">Exteriors</div>
+                                            <div className="body-box body-position">Get inside</div>
                                             <div className="body-line-svg"></div>
                                         </>
                                     )}
                                 </div>
-                                {isUpperExteriorsClicked && (
+                                {isGetInsideClicked && (
                                     <>
                                         <div className="description-text-container w-75">
                                             <span>
                                                 {`The Atto 3 boasts a head-turning design with a sporty stance, sharp lines, and a distinctive grille. The "Dragon Face" theme adds a touch of personality.`}
                                                 Optional panoramic sunroof opens up the cabin and creates an airy feel.
                                             </span>
-
                                         </div>
                                     </>
                                 )}
                             </>
                         )}
-                    {!isEngineClicked &&
-                        !isUpperExteriorsClicked &&
-                        !isHideHotspotsClicked && (
-                            <>
-                                <div
-                                    className="dot-svg3-car-2"
-                                    onClick={() => setIsLowerExteriorsClicked(true)}>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="32"
-                                        height="32"
-                                        viewBox="0 0 32 32"
-                                        fill="none">
-                                        <circle cx="16" cy="16" r="4" fill="#F1FAEE" />
-                                        <circle
-                                            cx="16"
-                                            cy="16"
-                                            r="14.5"
-                                            stroke="#F1FAEE"
-                                            stroke-width="3"
-                                        />
-                                    </svg>
-                                    {isLowerExteriorsClicked && (
-                                        <>
-                                            <div className="body-box exterior-position">
-                                                Exteriors
-                                            </div>
-                                            <div className="lower-exterior-line"></div>
-                                        </>
-                                    )}
-                                </div>
-                                {isLowerExteriorsClicked && (
-                                    <>
-                                        <div className="description-text-container w-75">
-                                            <span>
-                                                BYD Atto 3 Ground Clearance is 175 mm.
-                                            </span>
-                                        </div>
-                                    </>
-                                )}
-                            </>
-                        )}
-                </div>
-            )}
-            {isThirdImageClicked && (
-                <div
-                    className={`atto3-third-image ${(isGetInsideClicked || isTrunkClicked) &&
-                        !isHideHotspotsClicked &&
-                        "atto3-third-image-left"
-                        }`}>
-                    {!isGetInsideClicked && !isHideHotspotsClicked && (
-                        <>
-                            <div
-                                className="dot-svg1-car-3"
-                                onClick={() => setIsTrunkClicked(true)}>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="32"
-                                    height="32"
-                                    viewBox="0 0 32 32"
-                                    fill="none">
-                                    <circle cx="16" cy="16" r="4" fill="#F1FAEE" />
-                                    <circle
-                                        cx="16"
-                                        cy="16"
-                                        r="14.5"
-                                        stroke="#F1FAEE"
-                                        stroke-width="3"
-                                    />
-                                </svg>
-                                {isTrunkClicked && (
-                                    <>
-                                        <div className="body-box body-position">Trunk</div>
-                                        <div className="body-line-svg"></div>
-                                    </>
-                                )}
-                            </div>
-                            {isTrunkClicked && (
-                                <>
-                                    <div className="description-text-container w-75">
-                                        <span>
-                                            The BYD Atto 3 has a boot space measuring 440 litres
-                                        </span>
+                    </div>
+                )}
+            </Box>
 
-                                    </div>
-                                    <div className="interior-link ps-5 ms-5">
-                                        Trunk
-                                        <span onClick={OnClickTrunkButton}>
-                                            <svg
-                                                width="38"
-                                                height="40"
-                                                viewBox="0 0 38 40"
-                                                fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <rect
-                                                    width="40"
-                                                    height="40"
-                                                    rx="4"
-                                                    fill="white"
-                                                    fill-opacity="0.08"
-                                                />
-                                                <path
-                                                    d="M13 20H27"
-                                                    stroke="white"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                />
-                                                <path
-                                                    d="M20 13L27 20L20 27"
-                                                    stroke="white"
-                                                    stroke-width="2"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                />
-                                            </svg>
-                                        </span>
-                                    </div>
-                                </>
-                            )}
-                        </>
-                    )}
-                    {!isTrunkClicked && !isHideHotspotsClicked && (
-                        <>
-                            <div
-                                className="dot-svg2-car-3"
-                                onClick={() => setIsGetInsideClicked(true)}>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="32"
-                                    height="32"
-                                    viewBox="0 0 32 32"
-                                    fill="none">
-                                    <circle cx="16" cy="16" r="4" fill="#F1FAEE" />
-                                    <circle
-                                        cx="16"
-                                        cy="16"
-                                        r="14.5"
-                                        stroke="#F1FAEE"
-                                        stroke-width="3"
-                                    />
-                                </svg>
-                                {isGetInsideClicked && (
-                                    <>
-                                        <div className="body-box body-position">Get inside</div>
-                                        <div className="body-line-svg"></div>
-                                    </>
-                                )}
-                            </div>
-                            {isGetInsideClicked && (
-                                <>
-                                    <div className="description-text-container w-75">
-                                        <span>
-                                            {`The Atto 3 boasts a head-turning design with a sporty stance, sharp lines, and a distinctive grille. The "Dragon Face" theme adds a touch of personality.`}
-                                            Optional panoramic sunroof opens up the cabin and creates an airy feel.
-                                        </span>
-                                    </div>
-                                </>
-                            )}
-                        </>
-                    )}
-                </div>
-            )}
+            {
+                isCarSlider && (
+                    <div className="car-slider">
+                        <img
+                            src={firstImage}
+                            className={isFirstImageClicked && "car-slider-click"}
+                            onClick={onFistImageClicked}></img>
+                        <img
+                            src={secondImage}
+                            className={isSecondImageClicked && "car-slider-click"}
+                            onClick={onSecondImageClicked}></img>
+                        <img
+                            src={thirdImage}
+                            onClick={onThirdImageClicked}
+                            className={isThirdImageClicked && "car-slider-click"}></img>
+                    </div>
+                )
+            }
 
-            {isCarSlider && (
-                <div className="car-slider">
-                    <img
-                        src={firstImage}
-                        className={isFirstImageClicked && "car-slider-click"}
-                        onClick={onFistImageClicked}></img>
-                    <img
-                        src={secondImage}
-                        className={isSecondImageClicked && "car-slider-click"}
-                        onClick={onSecondImageClicked}></img>
-                    <img
-                        src={thirdImage}
-                        onClick={onThirdImageClicked}
-                        className={isThirdImageClicked && "car-slider-click"}></img>
-                </div>
-            )}
-
-            {isBackShowroom && (
-                <div className="interior-link showroom-atto3-link">
-                    Back to showroom
-                    <span onClick={OnClickShowroomButton}>
-                        <svg
-                            width="38"
-                            height="40"
-                            viewBox="0 0 38 40"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <rect
-                                width="40"
+            {
+                isBackShowroom && (
+                    <div className="interior-link showroom-atto3-link">
+                        Back to showroom
+                        <span onClick={OnClickShowroomButton}>
+                            <svg
+                                width="38"
                                 height="40"
-                                rx="4"
-                                fill="white"
-                                fill-opacity="0.08"
-                            />
-                            <path
-                                d="M13 20H27"
-                                stroke="white"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                            <path
-                                d="M20 13L27 20L20 27"
-                                stroke="white"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                        </svg>
-                    </span>
-                </div>
-            )}
-        </div>
+                                viewBox="0 0 38 40"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect
+                                    width="40"
+                                    height="40"
+                                    rx="4"
+                                    fill="white"
+                                    fill-opacity="0.08"
+                                />
+                                <path
+                                    d="M13 20H27"
+                                    stroke="white"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M20 13L27 20L20 27"
+                                    stroke="white"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                            </svg>
+                        </span>
+                    </div>
+                )
+            }
+        </Box >
     );
 };
 

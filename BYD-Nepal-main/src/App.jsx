@@ -16,6 +16,7 @@ import OtpVerify from "./components/OTP/OtpVerify";
 import ChargingStation from "./components/Services/ChargingStation";
 import CostSaving from "./components/Services/CostSaving";
 import TestDrive from "./pages/TestDrive";
+import CarsPage from "./pages/Cars";
 
 function NoMatch() {
     return (
@@ -32,6 +33,7 @@ function App() {
                 <Route path="/" element={<NepalMap />} />
                 <Route path="/welcome" element={<Welcome />} />
                 <Route path="/products" element={<Products />} />
+                <Route path="/cars" element={<CarsPage />} />
                 <Route path="/services" element={<ListOfServices />} />
                 <Route path="/charging-station" element={<ChargingStation />} />
                 <Route path="/cost-saving" element={<CostSaving />} />
