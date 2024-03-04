@@ -35,6 +35,8 @@ function RadioCard(props) {
     )
 }
 const TestDriveForm = () => {
+    const userName = localStorage.getItem("userName");
+    const toast = useToast()
     const validationSchema = Yup.object().shape({
         model: Yup.string().required("Model is required"),
         date: Yup.string().required("Date is required"),
@@ -51,9 +53,14 @@ const TestDriveForm = () => {
         validationSchema: validationSchema,
         onSubmit: async (values) => {
             try {
-                // await axios.post(process.env.REACT_APP_API_URL)
-                console.log(import.meta.env.VITE_REACT_APP_API_URL);
-                console.log(values);
+                await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/testdrive`, {
+                    "model": values.model,
+                    "date": values.date,
+                    "time": values.time,
+                    "phone": values.phone,
+                    userName: userName
+                })
+
 
             } catch (error) {
                 console.error("Error", error);

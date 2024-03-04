@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: "Archivo", sans-serif;
+}
+
 html,
 body {
     background-color: black;
@@ -670,45 +676,129 @@ body {
 
 .dolphin-car {
     background: url("../dolphin.png"), transparent 50% / cover no-repeat;
-    width: 501px;
-    height: 304px;
+    /* width: 501px; */
+    /* height: 304px; */
     flex-shrink: 0;
     position: absolute;
-    left: 217px;
-    top: 433px;
+    left: 18vw;
+    /* top: 433px; */
+    top: 52vh;
+
     cursor: pointer;
+    z-index: 2;
+    transition: ease-in-out 0.5s;
+    background-size: cover;
+    background-repeat: no-repeat;
 
     &&:hover {
+        /* z-index: 12;
         background: url("../dolphin-hover.png"), transparent 50% / cover no-repeat;
-        z-index: 12;
+        background-size: cover;
+        background-repeat: no-repeat;
         width: 771px;
         height: 468px;
         left: 87px;
-        top: 385px;
+        top: 30vh; */
+        z-index: 14;
+        width: 45vw;
+        /* height: 401px; */
+        /* top: 452px; */
+        /* left: 43.94px; */
+        top: 45vh;
+        left: 20vw;
+        background: url("../dolphin-hover.png"), transparent 50% / cover no-repeat;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+    }
+}
+
+.seal-car {
+    /* background: url("../seal.png"), transparent 50% / cover no-repeat; */
+    flex-shrink: 0;
+    position: absolute;
+    left: 42vw;
+    top: 47vh;
+
+    cursor: pointer;
+    z-index: 1;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    transition: ease-in-out 0.5s;
+
+    &&:hover {
+        /* z-index: 14;
+        background: url("../seal.png"), transparent 50% / cover no-repeat;
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 771px;
+        height: 468px;
+        left: 87px;
+        top: 30vh; */
+
+        z-index: 14;
+        width: 45vw;
+        /* height: 401px; */
+        /* top: 452px; */
+        /* left: 43.94px; */
+        top: 40vh;
+        left: 25vw;
+        background: url("../seal.png"), transparent 50% / cover no-repeat;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
 }
 
 .atto3-car {
     position: absolute;
-    width: 434px;
-    height: 304px;
+    /* width: 534px;
+    height: 304px; */
     flex-shrink: 0;
-    z-index: 11;
-    top: 452px;
-    left: 43.94px;
+    z-index: 3;
+    top: 52vh;
+    /* top: 452px; */
+    left: -70px;
     cursor: pointer;
-    background: url("../atto3.png"), transparent 50% / cover no-repeat;
+    /* background: url("../atto3-hover.png"), transparent 50% / cover no-repeat; */
+    transition: ease-in-out 0.5s;
+    background-size: cover;
+    background-repeat: no-repeat;
 
     &&:hover {
-        width: 727px;
-        height: 401px;
-        top: 394px;
-        left: 117px;
-        background: url("../atto3-hover.png"), transparent 50% / cover no-repeat;
+        width: 45vw;
+        /* height: 401px; */
+        /* top: 452px; */
+        /* left: 43.94px; */
+        top: 45vh;
+        left: 20vw;
+        background: url("../cars/atto3/atto3-car-showcase.webp"), transparent 50% / cover no-repeat;
+        background-size: cover;
+        background-repeat: no-repeat;
     }
+
 }
 
+
+
+
+
 .assistant-box-atto3 {
+    border-radius: 4px;
+    border: 0.6px solid var(--Border, #dfdfdf);
+    background: var(--Black, #171717);
+    display: flex;
+    width: 395px;
+    padding: 24px 32px;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    top: 266px;
+    left: 96px;
+}
+
+.assistant-box-seal3 {
     border-radius: 4px;
     border: 0.6px solid var(--Border, #dfdfdf);
     background: var(--Black, #171717);
@@ -719,7 +809,7 @@ body {
     align-items: flex-start;
     position: absolute;
     top: 266px;
-    left: 96px;
+    left: 50vw;
 }
 
 .byd-text {
@@ -735,8 +825,9 @@ body {
 }
 
 .car-showroom-container {
-    padding-top: 48px;
-    padding-left: 96px;
+
+    /* padding-top: 48px; */
+    /* padding-left: 96px; */
 
     width: 100vw;
     min-height: 150vh;
@@ -752,13 +843,13 @@ body {
 }
 
 .button-container-end {
-    margin-left: 1031px !important;
-    margin-top: -1px;
+    /* margin-left: 1031px !important; */
+    /* margin-top: -1px; */
 }
 
 .button-class {
     border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* border: 1px solid rgba(255, 255, 255, 0.5); */
     display: flex;
     padding: 10px 20px;
     align-items: center;
@@ -1281,9 +1372,9 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    position: absolute;
-    top: 488px;
-    left: 1082px;
+    /* position: absolute; */
+    /* top: 488px;
+    left: 1082px; */
     color: #fff;
     text-align: center;
     font-size: 16px;
@@ -1308,9 +1399,9 @@ body {
 }
 
 .atto3-top-nav {
-    color: #737373;
+    /* color: #737373;
     top: 48px;
-    left: 1176px;
+    left: 1176px; */
 }
 
 .otp-text {
@@ -1335,3 +1426,8 @@ body {
     line-height: 24px;
     cursor: pointer;
 }
+
+
+
+
+/* new */
