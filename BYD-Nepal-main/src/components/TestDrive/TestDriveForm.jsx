@@ -1,4 +1,4 @@
-import { Box, Button, Flex, FormLabel, Input, Stack, Text, useRadio, useRadioGroup } from "@chakra-ui/react"
+import { Box, Button, Flex, FormLabel, Input, Stack, Text, useRadio, useRadioGroup, useToast } from "@chakra-ui/react"
 import { Cars } from "../../constants/Cars"
 import { useFormik } from "formik";
 import axios from "axios";
@@ -53,6 +53,7 @@ const TestDriveForm = () => {
         validationSchema: validationSchema,
         onSubmit: async (values) => {
             try {
+                console.log("values", values);
                 await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/testdrive`, {
                     "model": values.model,
                     "date": values.date,
@@ -108,7 +109,7 @@ const TestDriveForm = () => {
                     })}
                 </Stack>
                 {formik.touched.date && formik.errors.date ? (
-                    <div>{formik.errors.date}</div>
+                    <Text color={'red'}>{formik.errors.model}</Text>
                 ) : null}
                 <Flex flexDirection={'column'} justifyContent={'center'} gap={'30px'} width={'100%'} paddingTop={'30px'}>
 
@@ -125,7 +126,7 @@ const TestDriveForm = () => {
                             fontSize={'12px'}
                         />
                         {formik.touched.date && formik.errors.date ? (
-                            <div>{formik.errors.date}</div>
+                            <Text color={'red'}>{formik.errors.date}</Text>
                         ) : null}
 
                     </Flex>

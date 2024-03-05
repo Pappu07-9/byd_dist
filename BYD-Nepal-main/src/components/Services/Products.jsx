@@ -64,8 +64,8 @@ const Products = () => {
             )}
             {(!isDolphinHover && !isAttoHover) && (
                 <Image
-                    src="./src/assets/seal.png"
-                    w='41vw'
+                    src="./src/assets/cars/seal/seal-showroom.webp"
+                    w='35vw'
                     className="seal-car"
                     onMouseOver={() => setIsSealHover(true)}
                     onMouseOut={() => setIsSealHover(false)}

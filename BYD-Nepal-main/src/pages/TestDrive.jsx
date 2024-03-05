@@ -4,9 +4,9 @@ import TestDriveForm from "../components/TestDrive/TestDriveForm"
 
 const TestDrive = () => {
     return (
-        <div className="inside-bg">
+        <Flex className="inside-bg">
             <Flex
-                w='100vw' h='100vh' p='40px 90px' direction={'column'} gap={'20%'} alignItems={'center'}
+                w='100vw' p='40px 90px' direction={'column'} gap={'20%'} alignItems={'center'}
                 width="100vw"
                 height="100vh"
                 justifyContent="flex-start"
@@ -32,7 +32,7 @@ const TestDrive = () => {
                     </div>
                 </div>
             </Flex>
-        </div >
+        </Flex >
     )
 }
 

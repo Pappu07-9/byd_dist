@@ -24,23 +24,23 @@ const PhoneNumber = () => {
     };
 
     const OnClickBackButton = () => {
-        navigate("/products");
+        navigate("/services");
     };
 
     const onClickSubmitButton = () => {
         handleApiCall();
     };
 
-    console.log(location.state.car);
+    // console.log(location.state?.car);
     const handleApiCall = async () => {
         try {
             //replace this url with backend deployed url after backend is deployed
-            // await axios.post("http://localhost:8000/api/temp-users/", {
-            //     phone_number: inputText,
-            // });
-            console.log({ state: { car: location, phoneNumber: inputText } });
+            await axios.post(`${import.meta.env.VITE_REACT_APP_API_URL}/auth/otp `, {
+                phone_number: inputText,
+            });
+            // console.log({ state: { car: location, phoneNumber: inputText } });
             navigate("/otp-verify", {
-                state: { car: location.state.car, phoneNumber: inputText },
+                state: { phoneNumber: inputText },
             });
             console.log("sad");
         } catch (error) {
@@ -72,7 +72,6 @@ const PhoneNumber = () => {
     return (
         <div className="container">
             <div className="inside-byd">
-                <div className="filter-left"></div>
                 <div className="back-box" onClick={OnClickBackButton}>
                     <svg
                         width="40"
@@ -142,15 +141,13 @@ const PhoneNumber = () => {
                 </div>
                 <div className="assistant-container-right">
                     <div className="assistant-image-right"></div>
-                    <div className="assistant-box">
-                        <div className="text-content">
+                    {/* <div className="assistant-box"> */}
+                    {/* <div className="text-content">
                             <div className="text-white nasso-text">NASSO</div>
                             <div className="assistant-text">Assistant.</div>
-                        </div>
-                        <div className="assistant-box-text">Talk with our assistant</div>
-                    </div>
+                        </div> */}
+                    {/* </div> */}
                 </div>
-                <div className="filter-container-right"> </div>
             </div>
         </div>
     );

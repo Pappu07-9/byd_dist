@@ -25,11 +25,10 @@ body {
 }
 
 .inside-bg {
-    width: 100vw;
-    height: 100vh;
+    /* width: 100vw;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../byd-showroom.png");
     background-size: cover;
 
@@ -37,7 +36,7 @@ body {
 }
 
 .container {
-    width: 100%;
+    width: 100vw;
     margin: 0;
     padding: 0;
     /* margin: 0; */
@@ -48,7 +47,7 @@ body {
 .inside-byd {
     /* background: url("../service-bg.png"); */
     background-size: cover;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.86)), url("../service-bg.png");
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.827), rgba(0, 0, 0, 0.874)), url("../service-bg.png");
     background-size: cover;
     width: 100vw;
     height: 100vh;
@@ -348,8 +347,8 @@ body {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    top: 182px;
-    left: 1015px;
+    top: 50vh;
+    left: 70vw;
     position: absolute;
     z-index: 1;
 }
@@ -362,7 +361,7 @@ body {
     right: 5%;
     position: absolute;
     z-index: 1;
-    margin-left: -100px;
+    /* margin-left: -100px; */
 }
 
 .assistant-image {
@@ -375,14 +374,16 @@ body {
     margin-bottom: -150px;
 
     /* background: url("../assistant-image.png"),
-        transparent -132.234px 0px / 166.702% 100% no-repeat; */
+    transparent -132.234px 0px / 166.702% 100% no-repeat; */
 }
 
 .assistant-image-right {
     width: 389px;
     height: 431.967px;
-    background: url("../assistant-image-right.png"),
+    background: url("../robot.png"),
         transparent -132.234px 0px / 166.702% 100% no-repeat;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .robot-image-right {
@@ -680,7 +681,7 @@ body {
     /* height: 304px; */
     flex-shrink: 0;
     position: absolute;
-    left: 18vw;
+    left: 20vw;
     /* top: 433px; */
     top: 52vh;
 
@@ -717,8 +718,8 @@ body {
     /* background: url("../seal.png"), transparent 50% / cover no-repeat; */
     flex-shrink: 0;
     position: absolute;
-    left: 42vw;
-    top: 47vh;
+    left: 45vw;
+    top: 57vh;
 
     cursor: pointer;
     z-index: 1;
@@ -739,13 +740,13 @@ body {
         top: 30vh; */
 
         z-index: 14;
-        width: 45vw;
+        width: 40vw;
         /* height: 401px; */
         /* top: 452px; */
         /* left: 43.94px; */
-        top: 40vh;
-        left: 25vw;
-        background: url("../seal.png"), transparent 50% / cover no-repeat;
+        top: 52vh;
+        left: 29vw;
+        background: url("../cars/seal/seal-showroom.webp"), transparent 50% / cover no-repeat;
         background-size: cover;
         background-repeat: no-repeat;
     }
@@ -759,7 +760,7 @@ body {
     z-index: 3;
     top: 52vh;
     /* top: 452px; */
-    left: -70px;
+    left: -0px;
     cursor: pointer;
     /* background: url("../atto3-hover.png"), transparent 50% / cover no-repeat; */
     transition: ease-in-out 0.5s;
@@ -767,7 +768,7 @@ body {
     background-repeat: no-repeat;
 
     &&:hover {
-        width: 45vw;
+        width: 50vw;
         /* height: 401px; */
         /* top: 452px; */
         /* left: 43.94px; */

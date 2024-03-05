@@ -35,9 +35,9 @@ const OtpVerify = () => {
         try {
             const data = await axios.post(
                 //replace this url with backend deployed url after backend is deployed
-                `${import.meta.env.VITE_REACT_APP_API_URL}/auth/verifyotp`,
+                `${import.meta.env.VITE_REACT_APP_API_URL}/auth/verify`,
                 {
-                    contactno: location.state.phoneNumber,
+                    phone_number: location.state.phoneNumber,
                     otp: otp,
                 }
             );
@@ -52,10 +52,10 @@ const OtpVerify = () => {
     };
 
     const handleResendApiCall = async () => {
-        await axios.get(
-            //replace this url with backend deployed url after backend is deployed
-            `http://localhost:8000/api/temp-otp/${location.state.phoneNumber}/`
-        );
+        // await axios.get(
+        //     //replace this url with backend deployed url after backend is deployed
+        //     `${import.meta.env.VITE_REACT_APP_API_URL}`
+        // );
     };
 
     const inputStyle = {
