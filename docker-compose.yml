@@ -4,6 +4,8 @@ services:
     build: ./BYD-Nepal-main
     container_name: byd_nepal_frontend
     image: byd_nepal_frontend
+    env_file:
+      -./BYD-Nepal-main/.env
     environment:
       - DB_HOST=db
     command: sh -c "yarn run dev --host 0.0.0.0"

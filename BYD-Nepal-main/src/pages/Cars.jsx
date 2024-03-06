@@ -98,7 +98,7 @@ const CarsPage = () => {
                             <div className="text-white nasso-text">NASSO</div>
                             <div className="assistant-text">Assistant.</div>
                         </div>
-                        <div className="assistant-box-text">Talk with our assistant</div>
+                        {/* <div className="assistant-box-text">Talk with our assistant</div> */}
                     </div>
                 </div>
                 <div className="filter-container-right"> </div>
